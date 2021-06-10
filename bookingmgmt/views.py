@@ -28,6 +28,15 @@ def update_booking(request, id):
 
     return render(request, 'bookingmgmt/booking_form.html', {'bookingform': bookingform, 'booking': booking})
 
+def delete_booking(request, id):
+    booking = Reservation.objects.get(id=id)
+
+    if request.method == 'POST':
+        booking.delete()
+        return redirect('list_bookings')
+
+    return render(request, 'bookingmgmt/booking_delete_confirm.html', {'booking': booking})
+
 
 def list_guests(request):
     guests = Guest.objects.all()

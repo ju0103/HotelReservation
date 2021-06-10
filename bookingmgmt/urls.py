@@ -6,6 +6,7 @@ urlpatterns = [
     path('', views.list_bookings, name = 'list_bookings'),
     path('newbooking/', views.create_booking, name='add_booking'),
     path('updatebooking/<int:id>/', views.update_booking, name='update_booking'),
+    path('deletebooking/<int:id>/', views.delete_booking, name='delete_booking'),
 
     path('guests/', views.list_guests, name = 'list_guests'),
     path('newguest/', views.create_guest, name='add_guest'),
