@@ -41,3 +41,13 @@ def create_guest(request):
         return redirect('list_guests')
 
     return render(request, 'bookingmgmt/guest_form.html', {'guestform': guestform})
+
+def update_guest(request, id):
+    guest = Guest.objects.get(id=id)
+    guestform = GuestForm(request.POST or None, instance=guest)
+
+    if guestform.is_valid():
+        guestform.save()
+        return redirect('list_guests')
+
+    return render(request, 'bookingmgmt/guest_form.html', {'guestform': guestform, 'guest': guest})

@@ -13,6 +13,7 @@
             <th>Phone Number</th>
             <th>Country</th>
             <th>Email</th>
+            <th>Update</th>
         </tr>
         <tr>
             {% for guest in guests %}
@@ -22,6 +23,7 @@
                 <td> {{ guest.guest_phone }}</td>
                 <td> {{ guest.guest_country }}</td>
                 <td> {{ guest.guest_email }}</td>
+                <td> <a class="btn btn-info" href ="{%url 'update_guest' guest.id %}">Update</a> <td>
                 </tr>
             {% endfor %}
     </table>
