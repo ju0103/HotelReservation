@@ -60,3 +60,12 @@ def update_guest(request, id):
         return redirect('list_guests')
 
     return render(request, 'bookingmgmt/guest_form.html', {'guestform': guestform, 'guest': guest})
+
+def delete_guest(request, id):
+    guest = Guest.objects.get(id=id)
+
+    if request.method == 'POST':
+        guest.delete()
+        return redirect('list_guests')
+
+    return render(request, 'bookingmgmt/guest_delete_confirm.html', {'guest': guest})

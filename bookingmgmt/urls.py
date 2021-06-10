@@ -11,4 +11,6 @@ urlpatterns = [
     path('guests/', views.list_guests, name = 'list_guests'),
     path('newguest/', views.create_guest, name='add_guest'),
     path('updateguest/<int:id>/', views.update_guest, name='update_guest'),
+    path('deleteguest/<int:id>/', views.delete_guest, name='delete_guest'),
+
 ]
