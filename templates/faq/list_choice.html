@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List of Choices</title>
+</head>
+<body>
+<ul>
+    {% for i in choices %}
+        <p>{{ i.choice_text }}</p>
+    {% endfor %}
+</ul>
+</body>
+</html>
