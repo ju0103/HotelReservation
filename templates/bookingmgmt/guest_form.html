@@ -1,24 +1,26 @@
-<html>
-<body>
-<div class="container">
-    <h1> New Guest</h1>
+{% extends "index\base.html" %}
+{% block title %}New guest{% endblock %}
 
-    <form method="POST">
-        {% csrf_token %}
-        <label>First Name</label> {{ guestform.guest_fname }} </br>
-        <label>Last Name</label> {{ guestform.guest_lname }} </br>
-        <label>Phone Number</label> {{ guestform.guest_phone }} </br>
-        <label>Country</label> {{ guestform.guest_country }} </br>
-        <label>Email</label> {{ guestform.guest_email }} </br>
+{% block content %}
 
-        <button class="btn btn-default" type="submit">Save</button>
-        <button onclick="window.history.back();" class="btn btn-default" type="button">Cancel</button>
-    </form>
-    {% if guest %}
-        <a class="btn btn-danger" href="{%url 'delete_guest' guest.id %}">Delete</a>
-    {%endif%}
+    <div class="container">
+        <h1> New Guest</h1>
 
-</div>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-</body>
-</html>
+        <form method="POST">
+            {% csrf_token %}
+            <label>First Name</label> {{ guestform.guest_fname }} </br>
+            <label>Last Name</label> {{ guestform.guest_lname }} </br>
+            <label>Phone Number</label> {{ guestform.guest_phone }} </br>
+            <label>Country</label> {{ guestform.guest_country }} </br>
+            <label>Email</label> {{ guestform.guest_email }} </br>
+
+            <button class="btn btn-outline-primary" type="submit">Save</button>
+            <button onclick="window.history.back();" class="btn btn-outline-dark" type="button">Cancel</button>
+
+            {% if guest %}
+                <a class="btn btn-outline-danger" href="{%url 'delete_guest' guest.id %}">Delete</a>
+            {%endif%}
+        </form>
+    </div>
+
+{% endblock %}

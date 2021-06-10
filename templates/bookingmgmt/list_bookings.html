@@ -1,39 +1,37 @@
-<html>
-<body>
-<h1>
-    <center>Booking List</center>
-</h1>
-<div class="container">
+{% extends "index\base.html" %}
+{% block title %}list of booking{% endblock %}
 
-    <table class="table table-striped">
-        <tr>
-            <th>ID</th>
-            <th>Room Number</th>
-            <th>guest name</th>
-            <th>Arrival date</th>
-            <th>Departure date</th>
-            <th>Cancellations</th>
-            <th>Cancellation date</th>
-            <th>Update</th>
-        </tr>
-        <tr>
-            {% for booking in bookings %}
-                <td> {{ booking.id }} </td>
-                <td> {{ booking.room }}</td>
-                <td> {{ booking.guest }}</td>
-                <td> {{ booking.arrival_date }}</td>
-                <td> {{ booking.departure_date }}</td>
-                <td> {{ booking.is_cancelled }}</td>
-                <td>{{ booking.cancellation_date}}</td>
-                <td> <a class="btn btn-info" href ="{%url 'update_booking' booking.id %}">Update</a> <td>
-                </tr>
-            {% endfor %}
-    </table>
+{% block content %}
 
-    <a class="btn btn-info pull-right" href = "{%url 'add_booking' %}"> New Booking </a>
+    <div class="container">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <table class="table table-striped">
+            <tr>
+                <th>ID</th>
+                <th>Room Number</th>
+                <th>guest name</th>
+                <th>Arrival date</th>
+                <th>Departure date</th>
+                <th>Cancellations</th>
+                <th>Cancellation date</th>
+                <th>Update</th>
+            </tr>
+            <tr>
+                {% for booking in bookings %}
+                    <td> {{ booking.id }} </td>
+                    <td> {{ booking.room }}</td>
+                    <td> {{ booking.guest }}</td>
+                    <td> {{ booking.arrival_date }}</td>
+                    <td> {{ booking.departure_date }}</td>
+                    <td> {{ booking.is_cancelled }}</td>
+                    <td>{{ booking.cancellation_date}}</td>
+                    <td> <a class="btn btn-info" href ="{%url 'update_booking' booking.id %}">Update</a> <td>
+                    </tr>
+                {% endfor %}
+        </table>
 
-</div>
-</body>
-</html>
+        <a class="btn btn-info pull-right" href = "{%url 'add_booking' %}"> New Booking </a>
+
+    </div>
+
+{% endblock %}

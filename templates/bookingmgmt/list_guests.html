@@ -1,37 +1,35 @@
-<html>
-<body>
-<h1>
-    <center>List of guests</center>
-</h1>
-<div class="container">
+{% extends "index\base.html" %}
+{% block title %}list of guests{% endblock %}
 
-    <table class="table table-striped">
-        <tr>
-            <th>ID</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Phone Number</th>
-            <th>Country</th>
-            <th>Email</th>
-            <th>Update</th>
-        </tr>
-        <tr>
-            {% for guest in guests %}
-                <td> {{ guest.id }} </td>
-                <td> {{ guest.guest_fname }}</td>
-                <td> {{ guest.guest_lname }}</td>
-                <td> {{ guest.guest_phone }}</td>
-                <td> {{ guest.guest_country }}</td>
-                <td> {{ guest.guest_email }}</td>
-                <td> <a class="btn btn-info" href ="{%url 'update_guest' guest.id %}">Update</a> <td>
-                </tr>
-            {% endfor %}
-    </table>
+{% block content %}
 
-    <a class="btn btn-info pull-right" href = "{%url 'add_guest' %}"> New Guest </a>
+    <div class="container">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <table class="table table-striped">
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Phone Number</th>
+                <th>Country</th>
+                <th>Email</th>
+                <th>Update</th>
+            </tr>
+            <tr>
+                {% for guest in guests %}
+                    <td> {{ guest.id }} </td>
+                    <td> {{ guest.guest_fname }}</td>
+                    <td> {{ guest.guest_lname }}</td>
+                    <td> {{ guest.guest_phone }}</td>
+                    <td> {{ guest.guest_country }}</td>
+                    <td> {{ guest.guest_email }}</td>
+                    <td> <a class="btn btn-info" href ="{%url 'update_guest' guest.id %}">Update</a> <td>
+                    </tr>
+                {% endfor %}
+        </table>
 
-</div>
-</body>
-</html>
+        <a class="btn btn-info pull-right" href = "{%url 'add_guest' %}"> New Guest </a>
+
+    </div>
+
+{% endblock %}

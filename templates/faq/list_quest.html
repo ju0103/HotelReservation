@@ -1,14 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Frequently Asked Questions</title>
-</head>
-<body>
-<ul>
-    {%  for i in questions %}
-        <p> {{ i.question_text }} <a href ="{%url 'list_choice' i.id %}"> Check Choice </a></p>
-    {%  endfor %}
-</ul>
-</body>
-</html>
+{% extends "index\base.html" %}
+{% block title %}Frequently Asked Questions{% endblock %}
+
+{% block content %}
+
+    <ul>
+        {%  for i in questions %}
+            <p> {{ i.question_text }} <a href ="{%url 'list_choice' i.id %}"> Check Choice </a></p>
+        {%  endfor %}
+    </ul>
+
+{% endblock %}
