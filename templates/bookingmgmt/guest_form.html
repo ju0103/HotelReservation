@@ -1,0 +1,21 @@
+<html>
+<body>
+<div class="container">
+    <h1> New Guest</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        <label>First Name</label> {{ guestform.guest_fname }} </br>
+        <label>Last Name</label> {{ guestform.guest_lname }} </br>
+        <label>Phone Number</label> {{ guestform.guest_phone }} </br>
+        <label>Country</label> {{ guestform.guest_country }} </br>
+        <label>Email</label> {{ guestform.guest_email }} </br>
+
+        <button class="btn btn-default" type="submit">Save</button>
+        <button onclick="window.history.back();" class="btn btn-default" type="button">Cancel</button>
+    </form>
+
+</div>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</body>
+</html>

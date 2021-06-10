@@ -1,0 +1,22 @@
+<html>
+<body>
+<div class="container">
+    <h1> Booking </h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        <label>Room Number</label> {{ bookingform.room }} </br>
+        <label>guest name</label> {{ bookingform.guest }} </br>
+        <label>Arrival date</label> {{ bookingform.arrival_date }} </br>
+        <label>Departure date</label> {{ bookingform.departure_date }} </br>
+        <label>Do you want to cancel?</label> {{ bookingform.is_cancelled }} </br>
+        <label>Cancellation date</label> {{ bookingform.cancellation_date }} </br>
+
+        <button class="btn btn-default" type="submit">Save</button>
+        <button onclick="window.history.back();" class="btn btn-default" type="button">Cancel</button>
+    </form>
+
+</div>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</body>
+</html>
