@@ -1,0 +1,39 @@
+<html>
+<body>
+<h1>
+    <center>Booking List</center>
+</h1>
+<div class="container">
+
+    <table class="table table-striped">
+        <tr>
+            <th>ID</th>
+            <th>Room Number</th>
+            <th>guest name</th>
+            <th>Arrival date</th>
+            <th>Departure date</th>
+            {% if bookings.is_cancelled %}
+                <th>Cancellation date</th>
+            {% endif %}
+            <th>Cancellations</th>
+        </tr>
+        <tr>
+            {% for booking in bookings %}
+                <td> {{ booking.id }} </td>
+                <td> {{ booking.room }}</td>
+                <td> {{ booking.guest }}</td>
+                <td> {{ booking.arrival_date }}</td>
+                <td> {{ booking.departure_date }}</td>
+                <td> {{ booking.is_cancelled }}</td>
+                {% if bookings.is_cancelled %}
+                    <td>{{ booking.cancellation_date}}</td>
+                {% endif %}
+                </tr>
+            {% endfor %}
+    </table>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+</div>
+</body>
+</html>

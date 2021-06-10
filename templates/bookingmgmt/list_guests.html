@@ -1,0 +1,33 @@
+<html>
+<body>
+<h1>
+    <center>List of guests</center>
+</h1>
+<div class="container">
+
+    <table class="table table-striped">
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Phone Number</th>
+            <th>Country</th>
+            <th>Email</th>
+        </tr>
+        <tr>
+            {% for guest in guests %}
+                <td> {{ guest.id }} </td>
+                <td> {{ guest.guest_fname }}</td>
+                <td> {{ guest.guest_lname }}</td>
+                <td> {{ guest.guest_phone }}</td>
+                <td> {{ guest.guest_country }}</td>
+                <td> {{ guest.guest_email }}</td>
+                </tr>
+            {% endfor %}
+    </table>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+</div>
+</body>
+</html>
