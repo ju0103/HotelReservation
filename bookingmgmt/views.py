@@ -18,10 +18,20 @@ def create_booking(request):
 
     return render(request, 'bookingmgmt/booking_form.html', {'bookingform': bookingform})
 
+def update_booking(request, id):
+    booking = Reservation.objects.get(id=id)
+    bookingform = BookingForm(request.POST or None, instance=booking)
+
+    if bookingform.is_valid():
+        bookingform.save()
+        return redirect('list_bookings')
+
+    return render(request, 'bookingmgmt/booking_form.html', {'bookingform': bookingform, 'booking': booking})
+
+
 def list_guests(request):
     guests = Guest.objects.all()
     return render(request, 'bookingmgmt/list_guests.html', {'guests': guests})
-
 
 def create_guest(request):
     guestform = GuestForm(request.POST or None)

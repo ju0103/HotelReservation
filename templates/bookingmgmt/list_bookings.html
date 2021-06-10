@@ -12,10 +12,9 @@
             <th>guest name</th>
             <th>Arrival date</th>
             <th>Departure date</th>
-            {% if bookings.is_cancelled %}
-                <th>Cancellation date</th>
-            {% endif %}
             <th>Cancellations</th>
+            <th>Cancellation date</th>
+            <th>Update</th>
         </tr>
         <tr>
             {% for booking in bookings %}
@@ -25,9 +24,8 @@
                 <td> {{ booking.arrival_date }}</td>
                 <td> {{ booking.departure_date }}</td>
                 <td> {{ booking.is_cancelled }}</td>
-                {% if bookings.is_cancelled %}
-                    <td>{{ booking.cancellation_date}}</td>
-                {% endif %}
+                <td>{{ booking.cancellation_date}}</td>
+                <td> <a class="btn btn-info" href ="{%url 'update_booking' booking.id %}">Update</a> <td>
                 </tr>
             {% endfor %}
     </table>
