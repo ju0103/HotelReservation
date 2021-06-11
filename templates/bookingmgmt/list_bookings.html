@@ -3,9 +3,11 @@
 
 {% block content %}
 
+    <center><h2 style="margin-bottom: 30px">List of Booking</h2></center>
+
     <div class="container">
 
-        <table class="table table-striped">
+        <table class="table">
             <tr>
                 <th>ID</th>
                 <th>Room Number</th>
@@ -24,13 +26,13 @@
                     <td> {{ booking.arrival_date }}</td>
                     <td> {{ booking.departure_date }}</td>
                     <td> {{ booking.is_cancelled }}</td>
-                    <td>{{ booking.cancellation_date}}</td>
-                    <td> <a class="btn btn-info" href ="{%url 'update_booking' booking.id %}">Update</a> <td>
+                    <td> {{ booking.cancellation_date}}</td>
+                    <td><a class="btn btn-outline-warning" href ="{%url 'update_booking' booking.id %}">Update</a><td>
                     </tr>
                 {% endfor %}
         </table>
 
-        <a class="btn btn-info pull-right" href = "{%url 'add_booking' %}"> New Booking </a>
+        <center><a class="btn btn-outline-primary pull-right" href = "{%url 'add_booking' %}"> New Booking </a></center>
 
     </div>
 

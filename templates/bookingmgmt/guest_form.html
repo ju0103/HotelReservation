@@ -4,23 +4,52 @@
 {% block content %}
 
     <div class="container">
-        <h1> New Guest</h1>
+
+        <h2> New Guest</h2>
 
         <form method="POST">
             {% csrf_token %}
-            <label>First Name</label> {{ guestform.guest_fname }} </br>
-            <label>Last Name</label> {{ guestform.guest_lname }} </br>
-            <label>Phone Number</label> {{ guestform.guest_phone }} </br>
-            <label>Country</label> {{ guestform.guest_country }} </br>
-            <label>Email</label> {{ guestform.guest_email }} </br>
+
+            <div class="row mb-3">
+                <label class="col-sm-2 col-form-label">First Name</label>
+                <div class="col-sm-10">
+                    {{ guestform.guest_fname }}
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label class="col-sm-2 col-form-label">Last name</label>
+                <div class="col-sm-10">
+                    {{ guestform.guest_lname }}
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label class="col-sm-2 col-form-label">Phone Number</label>
+                <div class="col-sm-10">
+                    {{ guestform.guest_phone }}
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label class="col-sm-2 col-form-label">Country</label>
+                <div class="col-sm-10">
+                    {{ guestform.guest_country }}
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-10">
+                    {{ guestform.guest_email }}
+                </div>
+            </div>
 
             <button class="btn btn-outline-primary" type="submit">Save</button>
             <button onclick="window.history.back();" class="btn btn-outline-dark" type="button">Cancel</button>
 
             {% if guest %}
-                <a class="btn btn-outline-danger" href="{%url 'delete_guest' guest.id %}">Delete</a>
-            {%endif%}
+                <a class="btn btn-outline-danger" href="{% url 'delete_guest' guest.id %}">Delete</a>
+            {% endif %}
+
         </form>
+
     </div>
 
 {% endblock %}

@@ -4,24 +4,57 @@
 {% block content %}
 
     <div class="container">
-        <h1> Booking </h1>
+
+        <h2> Booking </h2>
 
         <form method="POST">
             {% csrf_token %}
-            <label>Room Number</label> {{ bookingform.room }} </br>
-            <label>guest name</label> {{ bookingform.guest }} </br>
-            <label>Arrival date</label> {{ bookingform.arrival_date }} </br>
-            <label>Departure date</label> {{ bookingform.departure_date }} </br>
-            <label>Do you want to cancel?</label> {{ bookingform.is_cancelled }} </br>
-            <label>Cancellation date</label> {{ bookingform.cancellation_date }} </br>
 
+            <div class="row mb-3">
+                <label class="col-sm-2 col-form-label">Room Number</label>
+                <div class="col-sm-10">
+                    {{ bookingform.room }}
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label class="col-sm-2 col-form-label">Guest name</label>
+                <div class="col-sm-10">
+                    {{ bookingform.guest }}
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label class="col-sm-2 col-form-label">Arrival date</label>
+                <div class="col-sm-10">
+                    {{ bookingform.arrival_date }}
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label class="col-sm-2 col-form-label">Departure date</label>
+                <div class="col-sm-10">
+                    {{ bookingform.departure_date }}
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label class="col-sm-2 col-form-label">Do you want to cancel?</label>
+                <div class="col-sm-10">
+                    {{ bookingform.is_cancelled }}
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label class="col-sm-2 col-form-label">Cancellation date</label>
+                <div class="col-sm-10">
+                    {{ bookingform.cancellation_date }}
+                </div>
+            </div>
             <button class="btn btn-outline-primary" type="submit">Save</button>
             <button onclick="window.history.back();" class="btn btn-outline-dark" type="button">Cancel</button>
 
             {% if booking %}
-                <a class="btn btn-outline-danger" href="{%url 'delete_booking' booking.id %}">Delete</a>
-            {%endif%}
+                <a class="btn btn-outline-danger" href="{% url 'delete_booking' booking.id %}">Delete</a>
+            {% endif %}
+
         </form>
+
     </div>
 
 {% endblock %}
