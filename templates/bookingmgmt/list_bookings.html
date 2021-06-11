@@ -16,6 +16,7 @@
                 <th>Departure date</th>
                 <th>Cancellations</th>
                 <th>Cancellation date</th>
+                <th>Room Price</th>
                 <th>Update</th>
             </tr>
             <tr>
@@ -27,6 +28,7 @@
                     <td> {{ booking.departure_date }}</td>
                     <td> {{ booking.is_cancelled }}</td>
                     <td> {{ booking.cancellation_date}}</td>
+                    <td> {{ booking.room.room_type.room_price }}</td>
                     <td><a class="btn btn-outline-warning" href ="{%url 'update_booking' booking.id %}">Update</a><td>
                     </tr>
                 {% endfor %}
