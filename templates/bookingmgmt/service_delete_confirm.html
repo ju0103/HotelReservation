@@ -1,0 +1,13 @@
+{% extends "index\base.html" %}
+{% block title %}delete service{% endblock %}
+
+{% block content %}
+
+    <form method="post">
+        {% csrf_token %}
+        <h2> Are you sure you want to delete {{ service.reservation.guest }}'s service?</h2>
+        <button class="btn btn-outline-danger" type="submit">Delete</button>
+        <button onclick="window.history.back();" class="btn btn-outline-dark" type="button">Cancel</button>
+    </form>
+
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "index\base.html" %}
+{% block title %}New booking{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+
+        <h2> Service </h2>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="row mb-3">
+                <label class="col-sm-2 col-form-label">Reservation</label>
+                <div class="col-sm-10">
+                    {{ serviceform.reservation }}
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label class="col-sm-2 col-form-label">Room Service</label>
+                <div class="col-sm-10">
+                    {{ serviceform.room_service }}
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label class="col-sm-2 col-form-label">Early Check In</label>
+                <div class="col-sm-10">
+                    {{ serviceform.early_checkIn }}
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label class="col-sm-2 col-form-label">Minibar</label>
+                <div class="col-sm-10">
+                    {{ serviceform.minibar }}
+                </div>
+            </div>
+            <button class="btn btn-outline-primary" type="submit">Save</button>
+            <button onclick="window.history.back();" class="btn btn-outline-dark" type="button">Cancel</button>
+
+            {% if service %}
+                <a class="btn btn-outline-danger" href="{% url 'delete_service' service.id %}">Delete</a>
+            {% endif %}
+
+        </form>
+
+    </div>
+
+{% endblock %}
