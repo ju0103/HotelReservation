@@ -1,8 +1,8 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 
-from bookingmgmt.models import Reservation, Guest
-from bookingmgmt.forms import BookingForm, GuestForm
+from bookingmgmt.models import Reservation, Guest, Charge
+from bookingmgmt.forms import BookingForm, GuestForm, ServiceForm
 
 
 def list_bookings(request):
@@ -69,3 +69,36 @@ def delete_guest(request, id):
         return redirect('list_guests')
 
     return render(request, 'bookingmgmt/guest_delete_confirm.html', {'guest': guest})
+
+
+def list_services(request):
+    services = Charge.objects.all()
+    return render(request, 'bookingmgmt/list_services.html', {'services': services})
+
+def add_service(request):
+    serviceform = ServiceForm(request.POST or None)
+
+    if serviceform.is_valid():
+        serviceform.save()
+        return redirect('list_services')
+
+    return render(request, 'bookingmgmt/service_form.html', {'serviceform': serviceform})
+
+def update_service(request, id):
+    service = Charge.objects.get(id=id)
+    serviceform = ServiceForm(request.POST or None, instance=service)
+
+    if serviceform.is_valid():
+        serviceform.save()
+        return redirect('list_services')
+
+    return render(request, 'bookingmgmt/service_form.html', {'serviceform': serviceform, 'service': service})
+
+def delete_service(request, id):
+    service = Charge.objects.get(id=id)
+
+    if request.method == 'POST':
+        service.delete()
+        return redirect('list_services')
+
+    return render(request, 'bookingmgmt/service_delete_confirm.html', {'service': service})

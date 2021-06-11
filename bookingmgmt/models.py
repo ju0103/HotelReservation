@@ -37,3 +37,6 @@ class Charge(models.Model):
     minibar = models.BooleanField(blank=True)
     room_service = models.BooleanField(blank=True)
     early_checkIn = models.BooleanField(blank=True)
+
+    def __str__(self):
+        return self.reservation

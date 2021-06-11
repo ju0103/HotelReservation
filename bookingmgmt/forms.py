@@ -1,5 +1,5 @@
 from django import forms
-from bookingmgmt.models import Guest, Reservation
+from bookingmgmt.models import Guest, Reservation, Charge
 
 class BookingForm(forms.ModelForm):
     class Meta:
@@ -12,3 +12,9 @@ class GuestForm(forms.ModelForm):
         model = Guest
         fields = '__all__'
         #field = ['guest_fname', 'guest_lname', 'guest_phone', 'guest_country', 'guest_email']
+
+class ServiceForm(forms.ModelForm):
+    class Meta:
+        model = Charge
+        fields = '__all__'
+        #field = ['reservation', 'minibar', 'room_service', 'early_checkIn']
