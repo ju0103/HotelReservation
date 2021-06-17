@@ -1,7 +1,7 @@
+{% load static %}
 <!DOCTYPE html>
 
 <head>
-    {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -21,9 +21,9 @@
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item mx-1 btn"><a class="nav-link" href="{% url 'hotel' %}">About Hotel</a></li>
                 <li class="nav-item mx-1 btn"><a class="nav-link" href="{% url 'list_questions' %}">FAQ</a></li>
+                <li class="nav-item mx-1 btn"><a class="nav-link" href="{% url 'list_guests' %}">Guest Management</a></li>
                 <li class="nav-item mx-1 btn"><a class="nav-link" href="{% url 'list_bookings' %}">Booking Management</a>
                 </li>
-                <li class="nav-item mx-1 btn"><a class="nav-link" href="{% url 'list_guests' %}">Guest Management</a></li>
                 <li class="nav-item mx-1 btn"><a class="nav-link" href="{% url 'list_services' %}">Service Management</a></li>
             </ul>
         </div>

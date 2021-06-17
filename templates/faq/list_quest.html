@@ -5,7 +5,7 @@
 
     <ul>
         {%  for i in questions %}
-            <li style="margin-bottom: 15px"> {{ i.question_text }} <a href ="{% url 'list_choice' i.id %}"> Check Choice </a></li>
+            <li style="margin-bottom: 15px"> {{ i.question_text }} <a href ="{% url 'list_choice' i.id %}"> Check Answer </a></li>
         {%  endfor %}
     </ul>
 

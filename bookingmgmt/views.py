@@ -102,3 +102,12 @@ def delete_service(request, id):
         return redirect('list_services')
 
     return render(request, 'bookingmgmt/service_delete_confirm.html', {'service': service})
+
+def search_guest(request):
+    if 'q' in request.GET:
+        q = request.GET['q']
+        message = 'You searched for: %r' % request.GET['q']
+        guests = Guest.objects.filter(guest_fname__icontains=q)
+    else:
+        message = 'You submitted an empty form.'
+    return render(request, 'bookingmgmt/list_guests.html', {'message': message, 'guests': guests})
