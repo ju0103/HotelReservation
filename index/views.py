@@ -5,5 +5,5 @@ def home(request):
     return render(request, 'index/home.html', {'welcome' : welcome})
 
 def hotel(request):
-    hotel = 'HUFS'
+    hotel = 'About HUFS Hotel'
     return render(request, 'index/hotel.html', {'hotel' : hotel})

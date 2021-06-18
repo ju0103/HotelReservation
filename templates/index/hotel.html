@@ -2,6 +2,45 @@
 
 {% block content %}
 
-    <h1> {{ hotel }} </h1>
+    <h2> {{ hotel }} </h2>
+
+    <div class="container">
+        <table class="table table-sm">
+            <thead class="table-light">
+                <tr>
+                    <th scope="col">Room number</th>
+                    <th scope="col">Accommodation available</th>
+                    <th scope="col">Usage Charges</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td scope="row">201~210</td>
+                    <td>By 2 people, up to 4 people</td>
+                    <td>100,000 won</td>
+                </tr>
+                <tr>
+                    <td scope="row">401~405</td>
+                    <td>By 4 people, up to 6 people</td>
+                    <td>160,000 won</td>
+                </tr>
+                <tr>
+                    <td scope="row">801~802</td>
+                    <td>By 8 people, up to 10 people</td>
+                    <td>300,000 won</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h6>Charges</h6>
+        <ul>
+            <li>The above charge is the standard personnel fee, and additional personnel (including children) will be charged 10,000 won per person.</li>
+        </ul>
+        <h6>The following items are provided.</h6>
+        <ul>
+            <li>Room: Wi-Fi, air conditioner, TV, hanger, hair dryer</li>
+            <li>Bathroom: Shampoo, conditioner, body wash, soap, toothpaste, shower towel, towel</li>
+        </ul>
+    </div>
 
 {% endblock %}
