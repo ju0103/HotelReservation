@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'faq.apps.FaqConfig',
     'bookingmgmt.apps.BookingmgmtConfig',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
