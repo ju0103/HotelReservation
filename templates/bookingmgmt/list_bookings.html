@@ -6,7 +6,7 @@
     <center><h2 style="margin-bottom: 30px">List of Booking</h2></center>
 
     <div class="container">
-
+        <p style="align: left;">Total Bookings: {{ bookings.all.count }}</p>
         <table class="table">
             <tr>
                 <th>ID</th>
@@ -34,8 +34,9 @@
                 {% endfor %}
         </table>
 
-        <a class="btn btn-outline-secondary pull-right" href = "{%url 'add_service' %}"> Add Service </a>
+        <a class="btn btn-outline-secondary pull-right" href="{% url 'add_guest' %}"> New Guest </a></center>
         <a class="btn btn-outline-primary pull-right" href = "{%url 'add_booking' %}"> New Booking </a>
+        <a class="btn btn-outline-secondary pull-right" href = "{%url 'add_service' %}"> Add Service </a>
 
     </div>
 

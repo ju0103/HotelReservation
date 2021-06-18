@@ -6,10 +6,13 @@
     <center><h2 style="margin-bottom: 30px">List of Guest</h2></center>
 
     <div class="container">
-        <form action="/bookingmgmt/search_guest" method="get" style="margin-bottom: 20px">
-            <input type="text" name="q">
-            <input type="submit" value="Search First Name">
-        </form>
+        <div>
+            <p>Total guests: {{ guests.count }}</p>
+            <form action="/bookingmgmt/search_guest" method="get" style="margin-bottom: 20px">
+                <input type="text" name="q">
+                <input type="submit" value="Search First Name">
+            </form>
+        </div>
         <table class="table">
             <tr>
                 <th>ID</th>
@@ -35,6 +38,7 @@
         </table>
 
         <a class="btn btn-outline-primary pull-right" href="{% url 'add_guest' %}"> New Guest </a></center>
+        <a class="btn btn-outline-secondary pull-right" href = "{%url 'add_booking' %}"> New Booking </a>
 
     </div>
 
